@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide()
         setContentView(R.layout.activity_main)
 
         val adapter = ArrayAdapter.createFromResource(
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         };
 
         roll.setOnClickListener {
-            doRoll(spinnerDices.toString().toInt())
+            doRoll(spinnerDices.selectedItem.toString().toInt())
         }
     }
 

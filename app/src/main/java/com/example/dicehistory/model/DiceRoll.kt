@@ -10,6 +10,6 @@ data class DiceRoll(var timestamp: LocalDateTime, var rolledEyes: Array<Int>) : 
             returnString += "$i - "
         }
 
-        return returnString
+        return returnString.dropLast(3)
     }
 }
