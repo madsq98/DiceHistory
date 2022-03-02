@@ -8,9 +8,11 @@ import com.example.dicehistory.model.DiceRoll
 import kotlinx.android.synthetic.main.activity_history.*
 
 class HistoryActivity : AppCompatActivity() {
-    val history : Array<DiceRoll> = arrayOf()
+    var historyObj : DiceHistory = DiceHistory()
     override fun onCreate(savedInstanceState: Bundle?) {
         if(intent.extras != null) {
+            val b = intent.extras!!
+            historyObj = b.getSerializable("history") as DiceHistory
         }
 
         super.onCreate(savedInstanceState)
@@ -18,10 +20,10 @@ class HistoryActivity : AppCompatActivity() {
 
         val adapter = SimpleAdapter(
             this,
-            asListMap(DiceHistory().getAll()),
+            asListMap(historyObj.getAll().reversedArray()),
             R.layout.cell,
             arrayOf("hstTimeStamp","hstRoll"),
-            intArrayOf(R.id.hstTimeStamp, R.id.roll)
+            intArrayOf(R.id.hstTimeStamp, R.id.hstRoll)
         )
 
         lvHistory.adapter = adapter

@@ -3,4 +3,6 @@
     <string name="app_header_title">Dice History</string>
     <string name="roll_the_dice">Roll The Dice!</string>
     <string name="go_to_history">History -></string>
+    <string name="go_back"><![CDATA[<- Back]]></string>
+    <string name="clear_history">Clear History</string>
 </resources>
