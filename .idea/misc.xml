@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Bruger/Documents/GitHub/DiceHistory/app/src/main/res/layout/activity_history.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Bruger/Documents/GitHub/DiceHistory/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Bruger/Documents/GitHub/DiceHistory/app/src/main/res/layout/cell.xml" value="0.358695652173913" />
       </map>
     </option>
   </component>

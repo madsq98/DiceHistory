@@ -49,6 +49,8 @@ class MainActivity : AppCompatActivity() {
 
         DiceHistory().addRoll(rollObj)
 
+        println("History size: " + DiceHistory().getAllAsList().size)
+
         txtResult.setText(rollObj.toString())
     }
 }
