@@ -1,5 +1,6 @@
 package com.example.dicehistory
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.SimpleAdapter
@@ -27,6 +28,20 @@ class HistoryActivity : AppCompatActivity() {
         )
 
         lvHistory.adapter = adapter
+
+        backBtn.setOnClickListener {
+            val i = Intent()
+            val b = Bundle()
+            b.putSerializable("historyObj",historyObj)
+            i.putExtras(b)
+            setResult(RESULT_OK, i)
+            finish()
+        }
+
+        clearBtn.setOnClickListener {
+            historyObj.clear()
+            lvHistory.adapter = null
+        }
     }
 
     private fun asListMap(src: Array<DiceRoll>) : List<Map<String,String?>> {

@@ -13,7 +13,7 @@ import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
     val randomGenerator = Random()
-    val historyObj = DiceHistory()
+    var historyObj = DiceHistory()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             var b = Bundle()
             b.putSerializable("history", historyObj)
             i.putExtras(b)
-            startActivity(i)
+            startActivityForResult(i,0)
         };
 
         roll.setOnClickListener {
@@ -56,5 +56,13 @@ class MainActivity : AppCompatActivity() {
         println("History size: " + historyObj.getAllAsList().size)
 
         txtResult.setText(rollObj.toString())
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if(data != null) {
+            historyObj = data.extras!!.getSerializable("historyObj") as DiceHistory
+        }
     }
 }
