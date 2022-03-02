@@ -17,8 +17,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         supportActionBar?.hide()
         setContentView(R.layout.activity_main)
+
+        if(savedInstanceState != null) {
+            historyObj = savedInstanceState.getSerializable("historyObj") as DiceHistory
+            txtResult.setText(savedInstanceState.getString("resultString"))
+        }
 
         val adapter = ArrayAdapter.createFromResource(
             this,
@@ -40,6 +46,13 @@ class MainActivity : AppCompatActivity() {
         roll.setOnClickListener {
             doRoll(spinnerDices.selectedItem.toString().toInt())
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        outState.putSerializable("historyObj", historyObj)
+        outState.putString("resultString", txtResult.text.toString())
     }
 
     fun doRoll(amtDices : Int) {
